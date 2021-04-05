@@ -67,7 +67,8 @@ void parse_available_mem(){
 uint32_t* get_page(){
   int32_t mem = pop();
   return mem == -1? NULL : (uint32_t *)mem;
-}
+}/* Get a ptr to free page
+Returns -1 if no free pages are available else pointer to start of free page*/
 
 void free_page(uint32_t *page){
   push((uint32_t)page);
@@ -77,4 +78,4 @@ with type uint32_t and then pushes it to stack*/
 
 size_t get_num_free_pages(){
   return get_stack_count();
-}
+} /*The stack count is retrurned when this function is called*/
