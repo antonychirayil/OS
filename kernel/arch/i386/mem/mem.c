@@ -33,8 +33,6 @@ void push_frames(mmap_entry_t *entry){
 void allocate_buffer(){
   init_stack(stack_size);
   mmap_iterate(push_frames);
-  /*Initiating stack buffer and created a fuction to iterate over initiating a frame,
-   collecting the data and saving it into the stack */
 }
 
 void remove_overlap(mmap_entry_t* entry){
@@ -72,9 +70,7 @@ Returns -1 if no free pages are available else pointer to start of free page*/
 
 void free_page(uint32_t *page){
   push((uint32_t)page);
-}/*free page function takes an address a page as a parameter to free
-uint32_t *page:interpret pointer as a pointer to page  
-with type uint32_t and then pushes it to stack*/
+}
 
 size_t get_num_free_pages(){
   return get_stack_count();
